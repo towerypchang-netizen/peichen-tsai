@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# 標題與免責聲明（確保數據透明度）
+# 標題與數據透明度提示
 st.title("🗳️ 新北市議員參選人【蔡佩呈】即時選情與戰略分析看板")
 st.caption("聚焦泰山・五股・新莊・林口選區 | 數據來源：Google News 即時 RSS & 競選團隊內部研判")
 st.warning("⚠️ 數據提示：本系統「即時新聞情報」為真實 API 自動抓取；「選情指標與 SWOT 分析」為競選團隊內部研判參數，非 AI 杜撰內容。")
@@ -45,7 +45,7 @@ def fetch_real_google_news(keyword):
             
         return pd.DataFrame(articles)
     except Exception as e:
-        # 發生錯誤或無網路時，回傳空表格，嚴格禁止寫死假新聞
+        # 發生錯誤或無網路時，回傳空表格，絕不撰寫假新聞
         return pd.DataFrame(columns=["標題", "新聞連結", "發布時間"])
 
 # 載入新聞資料
@@ -67,7 +67,7 @@ with tab1:
                 st.write(f"**發布時間**：{row['發布時間']}")
                 st.write(f"**閱讀原文**：[{row['新聞連結']}]({row['新聞連結']})")
 
-# TAB 2: SWOT 戰略分析矩陣（基於參選人真實背景研判）
+# TAB 2: SWOT 戰略分析矩陣
 with tab2:
     st.subheader("💡 蔡佩呈 SWOT 競選戰略分析")
     st.caption("分析基於：蔡佩呈之十年議員服務處主任經驗、泰山在地深耕及三寶媽家庭形象。")
@@ -104,21 +104,28 @@ with tab2:
     * **WT 戰略（減少劣勢並避開威脅）**：加強跨區議題聯防，與同區域立委或優質議員聯合聯名宣傳，提升整體信任感。
     """)
 
-# TAB 3: 團隊內部評估數據
+# TAB 3: 團隊內部評估數據（包含放回的圓餅圖）
 with tab3:
     st.subheader("📊 競選團隊策略參數（內部評估）")
-    st.caption("此區數據為競選團隊手動輸入之策略目標，非即時民調。")
+    st.caption("此區數據為競選團隊手動設定之策略目標與話題權重，非即時自動算出的真實民調。")
 
     c1, c2 = st.columns(2)
+    
+    # 圓餅圖放回此處
     with c1:
-        st.write("#### 泰山區重點議題權重分析")
+        st.write("#### 🔥 泰山區重點議題關注重點分佈")
         issue_data = pd.DataFrame({
-            "議題項目": ["塭仔圳重劃區配套", "交通死角與路口安全", "婦幼托育與公園", "五泰輕軌進度", "長照與銀髮福利"],
+            "議題": ["塭仔圳重劃區配套", "交通死角與路口安全", "婦幼托育與公園", "五泰輕軌進度", "長照與銀髮福利"],
             "關注度 (%)": [35, 28, 20, 10, 7]
         })
-        fig = px.bar(issue_data, x="議題項目", y="關注度 (%)", color="關注度 (%)",
-                     color_continuous_scale="Blues", title="泰山民意關注重點排序")
-        st.plotly_chart(fig, use_container_width=True)
+        fig_pie = px.pie(
+            issue_data, 
+            values="關注度 (%)", 
+            names="議題", 
+            hole=0.4, 
+            color_discrete_sequence=px.colors.qualitative.Pastel
+        )
+        st.plotly_chart(fig_pie, use_container_width=True)
 
     with c2:
         st.write("#### 戰略執行進度")
