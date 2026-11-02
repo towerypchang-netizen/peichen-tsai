@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "election": {
+    "target_year": 2026,
+    "status": "尚未設定",
+    "district_name": "",
+    "areas": [],
+    "applicable_year": null,
+    "announcement_title": "",
+    "announcement_excerpt": "",
+    "announcement_url": "",
+    "announced_on": "",
+    "reviewer": "",
+    "reviewed_at": ""
+  },
+  "claims": [
+    {
+      "id": "C001",
+      "category": "人物經歷",
+      "text": "原程式聲稱：十年議員服務處主任經驗、泰山在地深耕及三寶媽家庭形象。",
+      "status": "待驗證",
+      "evidence": [],
+      "reviewer": "",
+      "reviewed_at": "",
+      "review_note": ""
+    },
+    {
+      "id": "C002",
+      "category": "工程實績",
+      "text": "原程式聲稱：具備拆除路口視線盲點牆體等地方建設實績。",
+      "status": "待驗證",
+      "evidence": [],
+      "reviewer": "",
+      "reviewed_at": "",
+      "review_note": ""
+    },
+    {
+      "id": "C003",
+      "category": "人口與需求",
+      "text": "原程式聲稱：塭仔圳重劃區大量年輕新家庭進駐，對托育、幼教與公園設施需求強烈。",
+      "status": "待驗證",
+      "evidence": [],
+      "reviewer": "",
+      "reviewed_at": "",
+      "review_note": ""
+    },
+    {
+      "id": "C004",
+      "category": "民意與聲量",
+      "text": "原程式聲稱：泰山基本盤穩固、交通建設議題高熱度。",
+      "status": "待驗證",
+      "evidence": [],
+      "reviewer": "",
+      "reviewed_at": "",
+      "review_note": ""
+    },
+    {
+      "id": "C005",
+      "category": "選舉競爭",
+      "text": "原程式聲稱：同選區多位新人參選，搶奪青年與中間選民。",
+      "status": "待驗證",
+      "evidence": [],
+      "reviewer": "",
+      "reviewed_at": "",
+      "review_note": ""
+    },
+    {
+      "id": "C006",
+      "category": "工程影響",
+      "text": "原程式聲稱：重劃區與交通工程施工期長，易引發居民交通抱怨。",
+      "status": "待驗證",
+      "evidence": [],
+      "reviewer": "",
+      "reviewed_at": "",
+      "review_note": ""
+    },
+    {
+      "id": "C007",
+      "category": "人物身分",
+      "text": "原程式將蔡佩呈標示為新北市議員參選人。",
+      "status": "待驗證",
+      "evidence": [],
+      "reviewer": "",
+      "reviewed_at": "",
+      "review_note": ""
+    }
+  ],
+  "resource_targets": [],
+  "progress": [],
+  "maintenance": [
+    {
+      "at": "2026-11-02T10:17:37+08:00",
+      "actor": "本次程式修正",
+      "action": "移除無依據百分比及事實保證；舊版敘述轉待驗證並停止公開；新增來源、選區與清冊檢查。",
+      "reference": "app.py 修正版；不代表任何人物或新聞已完成查證"
+    }
+  ]
+}
